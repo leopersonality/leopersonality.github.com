@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+string getResult(int introvert, int extrovert) {
+    if (introvert > extrovert) {
+        return "You're an Introvert";
+    } else {
+        return "You're an Extrovert";
+    }
+}
+
+int main() {
+    // Example usage
+    int introvertCount = 3; // Replace with actual introvert count
+    int extrovertCount = 2; // Replace with actual extrovert count
+
+    string personalityResult = getResult(introvertCount, extrovertCount);
+    cout << "Personality result: " << personalityResult << endl;
+
+    return 0;
+}

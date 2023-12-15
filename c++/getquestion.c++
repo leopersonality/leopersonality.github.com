@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+struct Answer {
+    string text;
+    string cat;
+};
+
+struct Question {
+    int id;
+    string question;
+    vector<Answer> answers;
+};
+
+string getQuestion(const vector<Question>& questions, int index) {
+    if (index >= 0 && index < questions.size() && !questions.empty()) {
+        return questions[index].question;
+    } else {
+        return "Invalid index or empty question set";
+    }
+}
+
+int main() {
+    // Define questions (similar to the previous examples)
+
+    vector<Question> questions = {
+        // ... (questions data here)
+    };
+
+    // Example usage
+    int questionIndex = 2; // Replace this with the desired question index
+    string questionText = getQuestion(questions, questionIndex);
+
+    cout << "Question at index " << questionIndex << ": " << questionText << endl;
+
+    return 0;
+}

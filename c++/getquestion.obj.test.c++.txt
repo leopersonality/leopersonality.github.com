@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+struct Answer {
+    string text;
+    string cat;
+};
+
+struct Question {
+    int id;
+    string question;
+    vector<Answer> answers;
+};
+
+bool compareQuestions(const Question& q1, const Question& q2) {
+    return q1.id == q2.id && q1.question == q2.question && q1.answers == q2.answers;
+}
+
+Question getQuestionObj(const vector<Question>& questions, int index) {
+    if (index >= 0 && index < questions.size() && !questions.empty()) {
+        return questions[index];
+    } else {
+        // Return an empty Question object or handle the case as required
+        return Question{-1, "Invalid index or empty question set", {}};
+    }
+}
+
+int main() {
+    // Define questions (similar to the previous examples)
+
+    vector<Question> questions = {
+        // ... (questions data here)
+    };
+
+    int questionIndex = 0;
+    Question expectedQuestionObj = questions[questionIndex];
+
+    // Test scenario
+    Question retrievedQuestionObj = getQuestionObj(questions, questionIndex);
+
+    // Compare individual fields of the objects
+    if (compareQuestions(retrievedQuestionObj, expectedQuestionObj)) {
+        cout << "Test passed: Retrieved question object matches expected question object." << endl;
+    } else {
+        cout << "Test failed: Retrieved question object does not match expected question object." << endl;
+    }
+
+    return 0;
+}

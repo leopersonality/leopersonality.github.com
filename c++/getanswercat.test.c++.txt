@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Similar structures for Question and Answer as described previously
+
+string getAnswerCat(const vector<Question>& questions, int questionIndex, int answerIndex) {
+    if (questionIndex >= 0 && questionIndex < questions.size() && !questions.empty()) {
+        if (answerIndex >= 0 && answerIndex < questions[questionIndex].answers.size()) {
+            return questions[questionIndex].answers[answerIndex].cat;
+        } else {
+            return "Invalid answer index";
+        }
+    } else {
+        return "Invalid question index or empty question set";
+    }
+}
+
+int main() {
+    // Define questions (similar to the previous examples)
+
+    vector<Question> questions = {
+        // ... (questions data here)
+    };
+
+    int questionIndex = 2;
+    int answerIndex = 0;
+    string expectedAnsCat = questions[questionIndex].answers[answerIndex].cat;
+
+    // Test scenario
+    string retrievedAnsCat = getAnswerCat(questions, questionIndex, answerIndex);
+
+    // Check if the retrieved category matches the expected category
+    if (retrievedAnsCat == expectedAnsCat) {
+        cout << "Test passed: Retrieved answer category matches expected answer category." << endl;
+    } else {
+        cout << "Test failed: Retrieved answer category does not match expected answer category." << endl;
+    }
+
+    return 0;
+}
