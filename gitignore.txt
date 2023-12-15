@@ -1,0 +1,6 @@
+misc/video.mov
+misc
+*/video.mov
+package-lock.json
+.vscode
+node_modules
